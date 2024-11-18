@@ -1,12 +1,13 @@
 import { Navbar } from '@/components/navbar';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({
+const poppins = Poppins({
     subsets: ['latin'],
     display: 'swap',
+    weight: '500',
 });
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ const RootLayout = ({
 }>) => {
     return (
         <html lang='en'>
-            <body className={cn('antialiased', inter.className)} suppressHydrationWarning>
+            <body className={cn('antialiased', poppins.className)} suppressHydrationWarning>
                 <Navbar />
                 {children}
             </body>
