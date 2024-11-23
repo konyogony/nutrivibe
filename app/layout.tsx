@@ -22,7 +22,7 @@ const RootLayout = ({
 }>) => {
     return (
         <html lang='en'>
-            <body className={cn('antialiased', poppins.className)} suppressHydrationWarning>
+            <body className={cn('relative antialiased', poppins.className)} suppressHydrationWarning>
                 <Navbar />
                 {children}
             </body>

@@ -1,101 +1,46 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { pageRoutes } from '@/config';
 import { cn } from '@/lib/utils';
 import { FiGithub } from '@vertisanpro/react-icons/fi';
-import { LuMenu } from '@vertisanpro/react-icons/lu';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger,
-} from './ui/drawer';
-
-const routes = [
-    { name: 'Home', description: 'Homepage of the project' },
-    { name: 'About', description: 'Learn more about us and our team' },
-    { name: 'Impact', description: 'See our impact and goals' },
-    { name: 'Market', description: 'Checkout our market research' },
-    { name: 'Production', description: 'Understand the proccess of making one' },
-];
+import { usePathname } from 'next/navigation';
+import { NavbarDrawer } from './navbar-drawer';
 
 export const Navbar = () => {
-    const [scrollHeight, setScrollHeight] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollHeight(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [scrollHeight]);
+    const pathname = usePathname();
 
     return (
-        <div
-            className={cn(
-                'fixed inset-0 z-50 flex h-fit w-full flex-row items-center gap-4 border-b px-4 py-3 backdrop-blur-sm transition-all duration-300 md:py-2.5 lg:px-[20vw]',
-                scrollHeight > 0
-                    ? 'border-black/5 bg-foreground/[.15] lg:bg-foreground/[.15] lg:backdrop-blur-sm'
-                    : 'border-black/5 bg-foreground/[.15] lg:border-transparent lg:bg-transparent',
-            )}
-        >
-            <Drawer>
-                <DrawerTrigger className='text-white hover:text-black md:hidden'>
-                    <LuMenu size={24} />
-                </DrawerTrigger>
-                <DrawerContent>
-                    <div className='mx-auto min-h-[30vh] w-full max-w-sm'>
-                        <DrawerHeader>
-                            <DrawerTitle>Contents</DrawerTitle>
-                            <DrawerDescription>Useful links and contents of the webpage</DrawerDescription>
-                        </DrawerHeader>
-                        <div className='flex flex-col space-y-4 p-4'>
-                            {routes.map((v, i) => (
-                                <DrawerClose asChild>
-                                    <Link
-                                        key={i}
-                                        href={v.name === 'Home' ? '/' : `/${v.name.toLowerCase()}`}
-                                        className='flex flex-col space-y-1 rounded-md border border-black/10 bg-muted-foreground/5 px-4 py-2 text-base font-medium text-black'
-                                    >
-                                        {v.name}
-                                        <span className='text-sm font-normal text-foreground/50'>{v.description}</span>
-                                    </Link>
-                                </DrawerClose>
-                            ))}
-                        </div>
-                    </div>
-                </DrawerContent>
-            </Drawer>
-            <Link className='mr-4 text-2xl font-semibold text-white hover:text-primary' href='/'>
+        <div className='fixed inset-0 z-50 flex h-fit w-full flex-row items-center justify-start p-4 md:top-6 md:justify-around md:p-0'>
+            <NavbarDrawer routes={pageRoutes} />
+
+            <Link className='hidden text-3xl font-medium text-primary md:block' href='/'>
                 Nutrivibe
             </Link>
-            <div className='mr-auto hidden flex-row items-center gap-6 md:flex'>
-                {routes.map((v, i) => (
+            <div className='hidden w-fit flex-row space-x-8 rounded-xl border border-black/5 bg-gradient-to-tr from-background/40 to-background/60 px-8 py-3 backdrop-blur-md md:flex'>
+                {pageRoutes.map((v, i) => (
                     <Link
                         key={i}
                         href={v.name === 'Home' ? '/' : `/${v.name.toLowerCase()}`}
-                        className='text-sm font-medium text-white transition-all duration-150 hover:text-primary'
+                        className={cn(
+                            'text-sm font-extralight transition-all duration-150 hover:text-primary',
+                            (pathname === '/' && v.name === 'Home') || pathname.split('/')[1] === v.name.toLowerCase()
+                                ? 'text-primary'
+                                : 'text-muted-foreground',
+                        )}
                     >
                         {v.name}
                     </Link>
                 ))}
             </div>
-            <div className='hidden md:block'>
-                <Button asChild variant='outline' size='icon'>
-                    <a href='https://github.com/konyogony/nutrivibe' rel='noopener noreferrer' target='_blank'>
-                        <FiGithub size={18} />
-                    </a>
-                </Button>
-            </div>
+            <a
+                className='hidden h-fit rounded-lg bg-background/50 p-2.5 backdrop-blur-md md:block'
+                href='https://github.com/konyogony/nutrivibe'
+                rel='noopener noreferrer'
+                target='_blank'
+            >
+                <FiGithub size={18} />
+            </a>
         </div>
     );
 };
