@@ -36,7 +36,7 @@
 
 @layer base {
     * {
-        @apply border-border focus:!ring-0;
+        @apply scroll-mt-36 border-border focus:!ring-0;
     }
     body {
         @apply bg-background text-foreground;

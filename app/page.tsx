@@ -14,7 +14,9 @@ const Home = () => {
             </div>
             <div className='flex w-full flex-col items-center space-y-4 bg-muted px-[10vw] py-[5vh] md:px-[20vw]'>
                 <div className='flex w-fit flex-col space-y-2 rounded-md border border-black/5 bg-muted-foreground/[.01] px-6 py-3 shadow-inner'>
-                    <span className='text-5xl font-semibold'>Idea</span>
+                    <span className='text-5xl font-semibold' id='Team'>
+                        Team
+                    </span>
                     <span className='text-xl font-normal'>
                         Our project is the idea of creating products made from organic protein—in simple terms, insects.
                         We plan to use insects as an alternative to existing animal-based protein sources.
