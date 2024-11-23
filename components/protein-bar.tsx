@@ -2,8 +2,20 @@
 
 import { useMediaQuery } from '@/lib/use-media-query';
 import { cn } from '@/lib/utils';
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import 'motion';
+import { motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import {
+    AmbientLight,
+    DirectionalLight,
+    Group,
+    MathUtils,
+    Mesh,
+    PerspectiveCamera,
+    Scene,
+    SpotLight,
+    WebGLRenderer,
+} from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 interface ProteinBarProps {
@@ -17,34 +29,37 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
     const mousePos = useRef({ x: 0, y: 0 });
     const mobile = !useMediaQuery('(min-width: 768px)');
 
+    // State to track model loading
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         const mount = mountRef.current;
         if (!mount) return;
 
         // Scene, camera, and renderer setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(80, mount.clientWidth / mount.clientHeight, 0.1, 1000);
+        const scene = new Scene();
+        const camera = new PerspectiveCamera(80, mount.clientWidth / mount.clientHeight, 0.1, 1000);
         camera.position.set(0, 1, 3);
         camera.lookAt(0, 0, 0);
 
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        const renderer = new WebGLRenderer({ alpha: true, antialias: true });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(mount.clientWidth, mount.clientHeight);
         mount.appendChild(renderer.domElement);
 
         // Lighting setup
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+        const directionalLight = new DirectionalLight(0xffffff, 3);
         directionalLight.position.set(5, 5, 5);
         scene.add(directionalLight);
 
-        const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
+        const ambientLight = new AmbientLight(0x404040, 1.5);
         scene.add(ambientLight);
 
-        const sideLight = new THREE.DirectionalLight(0xffffff, 2);
+        const sideLight = new DirectionalLight(0xffffff, 2);
         sideLight.position.set(-5, 2, 0);
         scene.add(sideLight);
 
-        const spotlight = new THREE.SpotLight(0xffffff, 1.5);
+        const spotlight = new SpotLight(0xffffff, 1.5);
         spotlight.position.set(-3, 5, 3);
         spotlight.target.position.set(0, 0, 0);
         scene.add(spotlight);
@@ -52,7 +67,7 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
 
         // Load the 3D model
         const loader = new GLTFLoader();
-        let model: THREE.Group | null = null;
+        let model: Group | null = null;
         loader.load(
             '/bar4.glb',
             (gltf) => {
@@ -61,12 +76,15 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
                 model.position.set(0, 0, 0); // Adjust position
 
                 // Reset model's rotation and then apply new rotation
-
                 scene.add(model);
+
+                // Set loading to false once model is loaded
+                setLoading(false);
             },
             undefined,
             (error) => {
                 console.error('Error loading model:', error);
+                setLoading(false); // Stop loading even if there's an error
             },
         );
 
@@ -95,8 +113,8 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
                 const targetRotationY = oscillationRotationY + mousePos.current.x * maxRotation;
 
                 // Smoothly interpolate the current rotation toward the target rotation
-                model.rotation.x = THREE.MathUtils.lerp(model.rotation.x, targetRotationX, 0.01);
-                model.rotation.y = THREE.MathUtils.lerp(model.rotation.y, targetRotationY, 0.01);
+                model.rotation.x = MathUtils.lerp(model.rotation.x, targetRotationX, 0.01);
+                model.rotation.y = MathUtils.lerp(model.rotation.y, targetRotationY, 0.01);
 
                 // Add optional Z-axis oscillation
                 model.rotation.z = Math.sin(time) * 0.15;
@@ -126,11 +144,11 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
             if (model) {
                 scene.remove(model);
                 model.traverse((child) => {
-                    if ((child as THREE.Mesh).geometry) {
-                        (child as THREE.Mesh).geometry.dispose();
+                    if ((child as Mesh).geometry) {
+                        (child as Mesh).geometry.dispose();
                     }
-                    if ((child as THREE.Mesh).material) {
-                        const material = (child as THREE.Mesh).material;
+                    if ((child as Mesh).material) {
+                        const material = (child as Mesh).material;
                         if (Array.isArray(material)) {
                             material.forEach((mat) => mat.dispose());
                         } else {
@@ -143,11 +161,13 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
             renderer.dispose();
         };
     }, []); // Empty dependency array to run this effect once
-
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
             ref={mountRef}
-            className={cn('relative h-full w-full overflow-visible lg:translate-x-1/2 xl:translate-x-1/3', className)}
+            className={cn('relative h-full w-full translate-x-1/3 overflow-visible', className)}
         />
     );
 };
