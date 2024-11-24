@@ -79,7 +79,12 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                     the severe environmental impact of livestock farming.
                 </span>
                 <div className='flex w-full flex-col items-center justify-center p-8 md:w-2/3'>
-                    <NumberFlow value={parseFloat(value.toFixed(1))} continuous={true} className='text-5xl' suffix='' />
+                    <NumberFlow
+                        value={Math.round(value * 1e1) / 1e1}
+                        format={{ minimumFractionDigits: 1 }}
+                        continuous
+                        className='text-5xl'
+                    />
                     <span className='text-center text-primary/70'>
                         <strong>Tons of CO₂</strong> released this year <br className='hidden md:block' /> through
                         animal farming
