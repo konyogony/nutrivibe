@@ -7,7 +7,6 @@ import { Sidebar } from '@/components/sidebar';
 import { Solution } from '@/components/solution';
 import { Team } from '@/components/team';
 import { headings } from '@/config';
-import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 const Home = () => {

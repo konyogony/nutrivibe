@@ -2,7 +2,6 @@
 
 import { cn } from '@/lib/utils';
 import { FiChevronRight } from '@vertisanpro/react-icons/fi';
-import Link from 'next/link';
 
 interface LearnMoreButtonProps {
     className?: string;
