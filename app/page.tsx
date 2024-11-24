@@ -63,7 +63,9 @@ const Home = () => {
             </div>
             <Solution sectionRefs={sectionRefs} />
             <InfiniteCarousel />
-            <div className='h-[2000rem] w-full bg-muted' />
+            <span className='mx-auto text-blue-600 text-4xl'>
+            Page under construction
+            </span>
         </div>
     );
 };
