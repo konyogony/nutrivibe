@@ -39,8 +39,8 @@ export const Team = ({ sectionRefs }: TeamProps) => {
                 }}
             >
                 This is the team behind this project. We are a group of
-                <span className='mx-1 text-brand'>passionate individuals</span> who are dedicated to making a difference
-                in the world.
+                <span className='text-brand'>&nbsp;passionate individuals&nbsp;</span>
+                who are dedicated to making a difference in the world.
             </motion.span>
 
             <div className='flex w-full flex-col justify-evenly gap-4 text-right md:flex-row'>
