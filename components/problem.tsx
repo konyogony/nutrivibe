@@ -32,7 +32,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
             className='flex w-full flex-col items-center space-y-20 px-[10vw] py-[15vh] md:px-[25vw]'
         >
             <motion.span
-                className='text-right text-7xl'
+                className='text-right text-7xl font-semibold'
                 initial='hidden'
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.9 }}

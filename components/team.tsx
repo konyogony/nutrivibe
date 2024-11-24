@@ -16,7 +16,7 @@ export const Team = ({ sectionRefs }: TeamProps) => {
             className='flex w-full flex-col items-center space-y-20 px-[10vw] py-[15vh] md:px-[25vw]'
         >
             <motion.span
-                className='text-7xl'
+                className='text-7xl font-semibold'
                 initial='hidden'
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.8 }}
@@ -29,7 +29,7 @@ export const Team = ({ sectionRefs }: TeamProps) => {
             </motion.span>
 
             <motion.span
-                className='text-left text-3xl font-light text-primary/80 md:w-[80%] md:text-center md:text-2xl'
+                className='text-left text-3xl text-primary/80 md:w-[80%] md:text-center md:text-2xl'
                 initial='hidden'
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.8 }}
