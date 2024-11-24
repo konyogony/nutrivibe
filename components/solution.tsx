@@ -79,7 +79,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-14 py-10 text-primary/85 shadow-sm md:col-span-1 md:row-span-4'
+                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-primary/85 shadow-sm md:col-span-1 md:row-span-4 md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
@@ -140,16 +140,22 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-14 py-10 text-right text-primary/85 shadow-sm md:col-span-1 md:row-span-2'
+                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-right text-primary/85 shadow-sm md:col-span-1 md:row-span-2 md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2 }}
                 >
                     <span className='z-20 text-2xl font-semibold text-primary'>Vegeterian alternative</span>
-                    <div className='absolute left-0'>
+                    <motion.div
+                        className='absolute left-0'
+                        initial={{ opacity: 0, rotate: -180, x: -100 }}
+                        whileInView={{ opacity: 1, rotate: 0, x: 0 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ type: 'spring', stiffness: 100, damping: 20, duration: 1.5, delay: 2 }}
+                    >
                         <LuCarrot size={128} className='rotate-[-10deg] text-primary/15' />
-                    </div>
+                    </motion.div>
                     <span className='z-20 mt-auto'>
                         Nutritious plant-based protein for vegetarians. Our products provide essential nutrients for a
                         balanced diet.
@@ -157,7 +163,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='col-span-2 rounded-lg border border-neutral-300/35 px-6 py-3 shadow-sm md:col-span-1 md:row-span-3'
+                    className='col-span-2 rounded-lg border border-neutral-300/35 px-7 py-5 shadow-sm md:col-span-1 md:row-span-3 md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
@@ -167,7 +173,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='col-span-2 rounded-lg border border-neutral-300/35 px-6 py-3 shadow-sm md:col-span-1 md:row-span-3'
+                    className='col-span-2 rounded-lg border border-neutral-300/35 px-7 py-5 shadow-sm md:col-span-1 md:row-span-3 md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
