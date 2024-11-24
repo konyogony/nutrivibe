@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 const InsectFootprintTrail: React.FC = () => {
@@ -23,15 +23,18 @@ const InsectFootprintTrail: React.FC = () => {
 
     const getWavePosition = (i: number) => {
         const x = -i * 20;
-        const y = -Math.sin(i * 0.6) * 40 + Math.random() * 10;
+        const y = -Math.sin(i * 0.6) * 40 + Math.cos(i * 0.3) * 20 + Math.random() * 20;
         const angle =
-            Math.atan2(y - (i > 0 ? -Math.sin((i - 1) * 0.6) * 40 : 0), x - (i > 0 ? -(i - 1) * 20 : 0)) *
+            Math.atan2(
+                y - (i > 0 ? -Math.sin((i - 1) * 0.6) * 40 + Math.cos((i - 1) * 0.3) * 20 : 0),
+                x - (i > 0 ? -(i - 1) * 20 : 0),
+            ) *
             (180 / Math.PI);
         return { x, y, angle };
     };
 
     return (
-        <div className='absolute right-0 top-[20%] z-0 h-[300px] w-[20px] rotate-[5deg]'>
+        <div className='absolute right-0 top-[45%] z-10 h-[300px] w-[20px]'>
             {footprints.map((_, i) => {
                 const { x, y, angle } = getWavePosition(i);
                 const totalFootprints = footprints.length;

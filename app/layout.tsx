@@ -1,14 +1,14 @@
+import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
-import { Footer } from '@/components/footer';
 
 const poppins = Poppins({
     subsets: ['latin'],
     display: 'swap',
-    weight: '500',
+    weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {

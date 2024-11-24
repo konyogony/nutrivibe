@@ -11,7 +11,7 @@ interface SidebarProps {
 export const Sidebar = ({ currentIndex }: SidebarProps) => {
     return (
         <motion.div
-            className='fixed left-16 top-1/2 z-30 hidden w-fit flex-col items-center gap-2 rounded-full border border-primary/5 bg-neutral-200/50 p-1.5 shadow-sm backdrop-blur-lg md:flex'
+            className='fixed left-2 top-1/2 z-30 hidden w-fit flex-col items-center gap-2 rounded-full border border-primary/5 bg-neutral-200/50 p-1.5 shadow-sm backdrop-blur-lg md:flex lg:left-16'
             initial={{ x: '-200%', y: '-50%' }}
             animate={{ x: '0%', y: '-50%' }}
             transition={{
@@ -43,7 +43,7 @@ export const Sidebar = ({ currentIndex }: SidebarProps) => {
             {headings.map((v, i) => {
                 return (
                     <a
-                        href={`#${v.name}`}
+                        href={`#${v.name.toLowerCase()}`}
                         key={i}
                         className={cn(
                             'group relative z-30 rounded-full p-3 transition-all duration-300',
@@ -52,7 +52,7 @@ export const Sidebar = ({ currentIndex }: SidebarProps) => {
                     >
                         <v.icon size={24} />
                         <span className='pointer-events-none absolute left-8 top-1/2 -translate-y-1/2 text-left text-sm font-semibold opacity-0 transition-all duration-150 group-hover:pointer-events-auto group-hover:left-16 group-hover:opacity-100'>
-                            {v.name}
+                            {v.name.split('')[0].toUpperCase() + v.name.slice(1)}
                         </span>
                     </a>
                 );
