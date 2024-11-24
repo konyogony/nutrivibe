@@ -36,7 +36,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 ref={(el) => {
                     sectionRefs.current[3] = el;
                 }}
-                id={headings[3].name}
+                id={headings[3].name.toLowerCase()}
                 viewport={{ once: true, amount: 1 }}
                 transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.2, delay: 1.2 }}
             >

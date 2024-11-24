@@ -12,7 +12,7 @@ export const Team = ({ sectionRefs }: TeamProps) => {
             ref={(el) => {
                 sectionRefs.current[1] = el;
             }}
-            id={headings[1].name}
+            id={headings[1].name.toLowerCase()}
             className='flex w-full flex-col items-center space-y-20 px-[10vw] py-[15vh] md:px-[25vw]'
         >
             <motion.span

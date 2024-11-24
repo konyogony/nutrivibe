@@ -28,7 +28,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
             ref={(el) => {
                 sectionRefs.current[2] = el;
             }}
-            id={headings[2].name}
+            id={headings[2].name.toLowerCase()}
             className='flex w-full flex-col items-center space-y-20 px-[10vw] py-[15vh] md:px-[25vw]'
         >
             <motion.span
@@ -118,7 +118,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
             >
                 <motion.a
                     className='mx-auto flex'
-                    href='#Product'
+                    href='#product'
                     animate={{ y: [0, -15, 0], rotate: [0, 5, -5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
                 >

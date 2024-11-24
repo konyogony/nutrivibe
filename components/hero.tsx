@@ -14,7 +14,7 @@ export const Hero = ({ sectionRefs }: HeroProps) => {
             ref={(el) => {
                 sectionRefs.current[0] = el;
             }}
-            id={headings[0].name}
+            id={headings[0].name.toLowerCase()}
         >
             <span className='absolute left-1/2 z-20 flex w-[90vw] -translate-x-1/2 flex-col text-6xl font-bold md:left-1/3 md:w-[80vw] md:text-8xl lg:w-[50vw] 2xl:w-[30vw]'>
                 Possibility of a <FlipWords words={wordsHero} className='m-0 p-0 text-white' /> future starts with food

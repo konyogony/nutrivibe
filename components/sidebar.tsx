@@ -43,7 +43,7 @@ export const Sidebar = ({ currentIndex }: SidebarProps) => {
             {headings.map((v, i) => {
                 return (
                     <a
-                        href={`#${v.name}`}
+                        href={`#${v.name.toLowerCase()}`}
                         key={i}
                         className={cn(
                             'group relative z-30 rounded-full p-3 transition-all duration-300',
