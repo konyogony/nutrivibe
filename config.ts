@@ -37,3 +37,5 @@ export const headings: Heading[] = [
 ];
 
 export const carouselItems = ['Sustainable', 'Healthy', 'Delicious', 'Nutritious', 'Eco-friendly'];
+
+export const wordsHero = ['better', 'healthier', 'greener', 'ethical', 'sustainable', 'responsible'];

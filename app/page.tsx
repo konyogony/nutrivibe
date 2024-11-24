@@ -1,11 +1,13 @@
 'use client';
 
 import { Hero } from '@/components/hero';
-import { Idea } from '@/components/idea';
 import InfiniteCarousel from '@/components/infinite-carousel';
+import { Problem } from '@/components/problem';
 import { Sidebar } from '@/components/sidebar';
+import { Solution } from '@/components/solution';
 import { Team } from '@/components/team';
 import { headings } from '@/config';
+import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 const Home = () => {
@@ -58,8 +60,9 @@ const Home = () => {
             <Hero sectionRefs={sectionRefs} />
             <div className='flex flex-col bg-gradient-to-br from-muted to-muted-foreground/20'>
                 <Team sectionRefs={sectionRefs} />
-                <Idea sectionRefs={sectionRefs} />
+                <Problem sectionRefs={sectionRefs} />
             </div>
+            <Solution sectionRefs={sectionRefs} />
             <InfiniteCarousel />
             <div className='h-[2000rem] w-full bg-muted' />
         </div>

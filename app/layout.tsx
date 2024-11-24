@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import { Footer } from '@/components/footer';
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -25,6 +26,7 @@ const RootLayout = ({
             <body className={cn('relative antialiased', poppins.className)} suppressHydrationWarning>
                 <Navbar />
                 {children}
+                <Footer />
             </body>
         </html>
     );

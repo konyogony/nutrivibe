@@ -11,7 +11,7 @@ interface SidebarProps {
 export const Sidebar = ({ currentIndex }: SidebarProps) => {
     return (
         <motion.div
-            className='fixed left-8 top-1/2 z-30 hidden w-fit flex-col items-center gap-2 rounded-full bg-neutral-200/50 p-1.5 backdrop-blur-lg md:flex'
+            className='fixed left-16 top-1/2 z-30 hidden w-fit flex-col items-center gap-2 rounded-full border border-primary/5 bg-neutral-200/50 p-1.5 shadow-sm backdrop-blur-lg md:flex'
             initial={{ x: '-200%', y: '-50%' }}
             animate={{ x: '0%', y: '-50%' }}
             transition={{
