@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 const Sources = () => {
     const router = useRouter();
     return (
-        <div className='flex min-h-screen flex-col items-center justify-center gap-4'>
+        <div className='flex min-h-screen flex-col items-center justify-center gap-4 px-4'>
             <span className='text-4xl'>Sources list</span>
             <Button variant='outline' size='lg' onClick={() => router.push('/')}>
                 Go Back <FiArrowRight size={18} />

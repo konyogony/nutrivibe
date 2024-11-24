@@ -51,7 +51,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                 viewport={{ once: true, amount: 0.9 }}
                 variants={{
                     hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.5 } },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.4 } },
                 }}
             >
                 Did you know that animal agriculture is responsible for
@@ -63,8 +63,8 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                 className='flex w-[95vw] flex-col items-center overflow-clip rounded-xl border border-primary/5 bg-neutral-200/50 shadow-sm md:w-full md:flex-row'
                 initial={{ opacity: 0, y: 100, rotateX: 90 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                viewport={{ once: true, amount: 0.9 }}
-                transition={{ duration: 0.7, delay: 0.8 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
             >
                 <div className='flex w-full flex-col bg-muted-foreground/20 p-6 text-lg text-primary/90 backdrop-blur-sm md:w-1/3 md:px-6 md:py-16'>
                     <Link
@@ -101,21 +101,18 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
             </motion.div>
 
             <motion.span
-                className='py-[20vh] text-center text-3xl text-primary/90 md:w-[80%] md:text-center md:text-2xl'
+                className='py-[10vh] text-center text-3xl text-primary/90 md:w-[80%] md:py-[20vh] md:text-center md:text-2xl'
                 initial='hidden'
                 whileInView='visible'
-                viewport={{ once: true, amount: 0.9 }}
+                viewport={{ once: true, amount: 0.8 }}
                 variants={{
                     hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.5 } },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } },
                 }}
             >
                 Plus, what about all the animals <strong className='text-destructive'>killed</strong>? Do they not
                 deserve to <strong className='text-brand'>live</strong>? <br /> <br />
-                <strong>
-                    Well, here comes Nutrivibe, a sustainable solution to the environmental and ethical issues of animal
-                    slaughter.
-                </strong>
+                <strong>Enter Nutrivibe: a sustainable solution to animal farming&apos;s issues.</strong>
             </motion.span>
 
             <motion.div

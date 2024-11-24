@@ -11,7 +11,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
     return (
         <div className='flex w-full flex-col items-center space-y-20 px-[10vw] py-[15vh] md:px-[25vw]'>
             <motion.span
-                className='text-4xl'
+                className='text-3xl md:text-4xl'
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 18 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -20,7 +20,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 Introducing -
             </motion.span>
             <motion.span
-                className='relative text-8xl font-extrabold'
+                className='relative text-5xl font-extrabold md:text-8xl'
                 initial={{
                     opacity: 0,
                     y: 100,
@@ -56,8 +56,8 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 className='grid w-3/4 grid-cols-2 grid-rows-10 gap-4 backdrop-blur-xl'
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 1 }}
+                viewport={{ once: true, amount: 0.9 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5 }}
             >
                 <motion.div
                     className='relative col-span-2 row-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-14 py-10 text-primary/80 shadow-sm'

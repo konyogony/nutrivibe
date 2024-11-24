@@ -112,7 +112,9 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
             mousePos.current = { x, y };
         };
 
-        window.addEventListener('mousemove', onMouseMove);
+        if (!mobile) {
+            window.addEventListener('mousemove', onMouseMove);
+        }
 
         const animate = () => {
             if (model) {
@@ -150,7 +152,9 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
 
         return () => {
             window.removeEventListener('resize', handleResize);
-            window.removeEventListener('mousemove', onMouseMove);
+            if (!mobile) {
+                window.removeEventListener('mousemove', onMouseMove);
+            }
             if (model) {
                 scene.remove(model);
                 model.traverse((child) => {
@@ -170,15 +174,15 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
             mount.removeChild(renderer.domElement);
             renderer.dispose();
         };
-    }, [reducedMotion]);
+    }, [reducedMotion, mobile]);
 
     return (
         <motion.div
             initial={{ opacity: 0, scale: mobile ? 1 : 0.6 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 1, scale: 1.2, rotate: 15 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
             ref={mountRef}
-            className={cn('h-full w-full overflow-visible', className)}
+            className={cn('h-full w-full overflow-visible brightness-90 md:brightness-100', className)}
             style={{ transformOrigin: 'center' }}
         />
     );
