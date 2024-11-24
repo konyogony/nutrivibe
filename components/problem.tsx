@@ -60,7 +60,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
             </motion.span>
 
             <motion.div
-                className='flex w-[95vw] flex-col items-center overflow-clip rounded-xl border border-primary/5 bg-neutral-200/50 shadow-sm md:w-full md:flex-row'
+                className='flex w-[95vw] flex-col items-center overflow-clip rounded-xl border border-primary/5 bg-neutral-200/50 shadow-sm md:w-[75vw] md:flex-row xl:w-full'
                 initial={{ opacity: 0, y: 100, rotateX: 90 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true, amount: 0.6 }}
@@ -99,21 +99,6 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                     </span>
                 </div>
             </motion.div>
-
-            <motion.span
-                className='py-[10vh] text-center text-3xl text-primary/90 md:w-[80%] md:py-[20vh] md:text-center md:text-2xl'
-                initial='hidden'
-                whileInView='visible'
-                viewport={{ once: true, amount: 0.8 }}
-                variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } },
-                }}
-            >
-                Plus, what about all the animals <strong className='text-destructive'>killed</strong>? Do they not
-                deserve to <strong className='text-brand'>live</strong>? <br /> <br />
-                <strong>Enter Nutrivibe: a sustainable solution to animal farming&apos;s issues.</strong>
-            </motion.span>
 
             <motion.div
                 initial={{ opacity: 0, y: 50 }}

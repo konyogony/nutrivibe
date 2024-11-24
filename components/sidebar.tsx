@@ -52,7 +52,7 @@ export const Sidebar = ({ currentIndex }: SidebarProps) => {
                     >
                         <v.icon size={24} />
                         <span className='pointer-events-none absolute left-8 top-1/2 -translate-y-1/2 text-left text-sm font-semibold opacity-0 transition-all duration-150 group-hover:pointer-events-auto group-hover:left-16 group-hover:opacity-100'>
-                            {v.name}
+                            {v.name.split('')[0].toUpperCase() + v.name.slice(1)}
                         </span>
                     </a>
                 );

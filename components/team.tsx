@@ -43,11 +43,11 @@ export const Team = ({ sectionRefs }: TeamProps) => {
                 who are dedicated to making a difference in the world.
             </motion.span>
 
-            <div className='flex w-full flex-col justify-evenly gap-4 text-right md:flex-row'>
+            <div className='flex w-full flex-wrap justify-evenly gap-4 text-right md:flex-col md:items-center lg:flex-row'>
                 {nutrivibeTeam.map((v, i) => (
                     <motion.div
                         key={i}
-                        className='flex flex-row items-center justify-between gap-4 md:justify-normal'
+                        className='flex w-full flex-row items-center justify-between gap-4 lg:w-fit lg:justify-normal'
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.8 }}
