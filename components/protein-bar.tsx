@@ -2,7 +2,6 @@
 
 import { useMediaQuery } from '@/lib/use-media-query';
 import { cn } from '@/lib/utils';
-import 'motion';
 import { motion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 import {
