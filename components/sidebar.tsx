@@ -18,8 +18,8 @@ export const Sidebar = ({ currentIndex }: SidebarProps) => {
                 type: 'spring',
                 stiffness: 50,
                 damping: 10,
+                duration: 0.5,
             }}
-            style={{}}
         >
             <motion.div
                 className='absolute top-1.5 z-10 rounded-full bg-brand/60 p-6'

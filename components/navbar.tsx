@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { FiGithub } from '@vertisanpro/react-icons/fi';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -20,7 +21,15 @@ export const Navbar = () => {
     }, []);
 
     return (
-        <div
+        <motion.div
+            initial={{ y: '-200%' }}
+            animate={{ y: '0%' }}
+            transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 10,
+                duration: 0.5,
+            }}
             className={cn(
                 'fixed inset-0 z-50 flex h-fit w-full flex-row items-center justify-start p-4 transition-all duration-500 md:top-6 md:justify-between md:bg-transparent md:p-0 md:px-[10vw] md:backdrop-blur-none',
                 scrollHeight > 0 && 'bg-background/10 backdrop-blur-md',
@@ -37,6 +46,6 @@ export const Navbar = () => {
             >
                 <FiGithub size={18} />
             </a>
-        </div>
+        </motion.div>
     );
 };

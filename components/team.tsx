@@ -13,7 +13,7 @@ export const Team = ({ sectionRefs }: TeamProps) => {
                 sectionRefs.current[1] = el;
             }}
             id={headings[1].name}
-            className='flex w-full flex-col items-center space-y-20 bg-gradient-to-br from-muted to-muted-foreground/20 px-[10vw] py-[10vh] md:px-[25vw]'
+            className='flex w-full flex-col items-center space-y-20 px-[10vw] py-[15vh] md:px-[25vw]'
         >
             <motion.span
                 className='text-7xl'
