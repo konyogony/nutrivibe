@@ -55,7 +55,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                 }}
             >
                 Did you know that animal agriculture is responsible for
-                <span className='mx-1 text-destructive'>14.5%</span>
+                <span className='text-destructive'>&nbsp;14.5%&nbsp;</span>
                 of global greenhouse gas emissions?
             </motion.span>
 
