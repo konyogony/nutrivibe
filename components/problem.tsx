@@ -93,7 +93,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                     />
                     <span className='text-center text-primary/70'>
                         <strong>
-                            Tons of CO<sub>2</sub>
+                            Tons of CO<sub>2</sub>&nbsp;
                         </strong>
                         released this year <br className='hidden md:block' /> through animal farming
                     </span>
