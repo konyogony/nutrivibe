@@ -22,7 +22,6 @@ const InfiniteCarousel = () => {
         dots: false,
     };
 
-    console.log(mobile);
     return (
         <div className='w-full overflow-hidden border-y border-black/10'>
             <Slider {...settings}>

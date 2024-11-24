@@ -12,7 +12,7 @@ export const LearnMoreButton = ({ className }: LearnMoreButtonProps) => {
     return (
         <Link
             className={cn(
-                'flex w-fit flex-row items-center gap-1 rounded-3xl bg-gradient-to-tr from-blue-600 to-blue-500 px-4 py-1.5 text-lg font-normal shadow-xl',
+                'flex w-fit flex-row items-center gap-1 rounded-3xl bg-gradient-to-tr from-blue-600 to-blue-500 px-5 py-3 text-lg font-normal transition-all duration-300 hover:rounded-lg md:text-xl',
                 className,
             )}
             href='/about'

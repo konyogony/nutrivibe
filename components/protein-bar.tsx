@@ -4,13 +4,16 @@ import { useMediaQuery } from '@/lib/use-media-query';
 import { cn } from '@/lib/utils';
 import 'motion';
 import { motion } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import {
     AmbientLight,
     DirectionalLight,
     Group,
+    LinearFilter,
     MathUtils,
     Mesh,
+    MeshStandardMaterial,
+    NearestFilter,
     PerspectiveCamera,
     Scene,
     SpotLight,
@@ -24,19 +27,17 @@ interface ProteinBarProps {
 
 export const ProteinBar = ({ className }: ProteinBarProps) => {
     const mountRef = useRef<HTMLDivElement>(null);
-
-    // Use ref to store mouse position, avoiding re-renders
     const mousePos = useRef({ x: 0, y: 0 });
-    const mobile = !useMediaQuery('(min-width: 768px)');
 
-    // State to track model loading
-    const [loading, setLoading] = useState(true);
+    const mobile = !useMediaQuery('(min-width: 768px)');
+    const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+
+    console.log(reducedMotion, mobile);
 
     useEffect(() => {
         const mount = mountRef.current;
         if (!mount) return;
 
-        // Scene, camera, and renderer setup
         const scene = new Scene();
         const camera = new PerspectiveCamera(80, mount.clientWidth / mount.clientHeight, 0.1, 1000);
         camera.position.set(0, 1, 3);
@@ -47,7 +48,6 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
         renderer.setSize(mount.clientWidth, mount.clientHeight);
         mount.appendChild(renderer.domElement);
 
-        // Lighting setup
         const directionalLight = new DirectionalLight(0xffffff, 3);
         directionalLight.position.set(5, 5, 5);
         scene.add(directionalLight);
@@ -65,61 +65,71 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
         scene.add(spotlight);
         scene.add(spotlight.target);
 
-        // Load the 3D model
         const loader = new GLTFLoader();
         let model: Group | null = null;
         loader.load(
             '/bar4.glb',
             (gltf) => {
                 model = gltf.scene;
-                model.scale.set(0.5, 0.5, 0.5); // Adjust scale
-                model.position.set(0, 0, 0); // Adjust position
-
-                // Reset model's rotation and then apply new rotation
+                model.scale.set(0.5, 0.5, 0.5);
+                model.position.set(0, 0, 0);
                 scene.add(model);
 
-                // Set loading to false once model is loaded
-                setLoading(false);
+                // Set texture filtering properties
+                model.traverse((child) => {
+                    if ((child as Mesh).isMesh) {
+                        const mesh = child as Mesh;
+                        if (mesh.material && Array.isArray(mesh.material)) {
+                            mesh.material.forEach((material) => {
+                                const meshMaterial = material as MeshStandardMaterial;
+                                if (meshMaterial.map) {
+                                    meshMaterial.map.minFilter = LinearFilter;
+                                    meshMaterial.map.magFilter = NearestFilter;
+                                    meshMaterial.map.needsUpdate = true;
+                                }
+                            });
+                        } else if (mesh.material) {
+                            const meshMaterial = mesh.material as MeshStandardMaterial;
+                            if (meshMaterial.map) {
+                                meshMaterial.map.minFilter = LinearFilter;
+                                meshMaterial.map.magFilter = NearestFilter;
+                                meshMaterial.map.needsUpdate = true;
+                            }
+                        }
+                    }
+                });
             },
             undefined,
             (error) => {
                 console.error('Error loading model:', error);
-                setLoading(false); // Stop loading even if there's an error
             },
         );
 
-        // Time variable to control the oscillation
         let time = 0;
 
-        // Mouse position tracking
         const onMouseMove = (event: MouseEvent) => {
-            const x = (event.clientX / window.innerWidth) * 2 - 1; // Normalize mouse position to [-1, 1]
-            const y = -(event.clientY / window.innerHeight) * 2 + 1; // Normalize to [-1, 1]
-            mousePos.current = { x, y }; // Update mouse position in ref
+            const x = (event.clientX / window.innerWidth) * 2 - 1;
+            const y = -(event.clientY / window.innerHeight) * 2 + 1;
+            mousePos.current = { x, y };
         };
 
-        // Attach mousemove listener
         window.addEventListener('mousemove', onMouseMove);
 
-        // Animation loop
         const animate = () => {
             if (model) {
-                time += 0.0025; // Controls the speed of the oscillation
-                const oscillationRotationX = Math.sin(time) * 0.15; // Oscillation rotation
-                const oscillationRotationY = Math.cos(time) * 0.05; // Oscillation rotation
+                time += 0.0025;
+                const oscillationRotationX = Math.sin(time) * 0.15;
+                const oscillationRotationY = Math.cos(time) * 0.05;
 
-                const maxRotation = Math.PI / 12; // Maximum rotation limit (15 degrees)
+                const maxRotation = Math.PI / 12;
                 const targetRotationX = oscillationRotationX + mousePos.current.y * maxRotation;
                 const targetRotationY = oscillationRotationY + mousePos.current.x * maxRotation;
 
-                // Smoothly interpolate the current rotation toward the target rotation
                 model.rotation.x = MathUtils.lerp(model.rotation.x, targetRotationX, 0.01);
                 model.rotation.y = MathUtils.lerp(model.rotation.y, targetRotationY, 0.01);
 
-                // Add optional Z-axis oscillation
                 model.rotation.z = Math.sin(time) * 0.15;
 
-                // Constrain rotations to avoid excessive movement
                 model.rotation.x = Math.max(-maxRotation, Math.min(maxRotation, model.rotation.x));
                 model.rotation.y = Math.max(-maxRotation, Math.min(maxRotation, model.rotation.y));
             }
@@ -127,9 +137,11 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
             renderer.render(scene, camera);
             requestAnimationFrame(animate);
         };
-        animate();
 
-        // Handle window resizing
+        if (!reducedMotion) {
+            animate();
+        }
+
         const handleResize = () => {
             camera.aspect = mount.clientWidth / mount.clientHeight;
             camera.updateProjectionMatrix();
@@ -137,7 +149,6 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
         };
         window.addEventListener('resize', handleResize);
 
-        // Cleanup function
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', onMouseMove);
@@ -160,14 +171,16 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
             mount.removeChild(renderer.domElement);
             renderer.dispose();
         };
-    }, []); // Empty dependency array to run this effect once
+    }, [reducedMotion]);
+
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: mobile ? 1 : 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
             ref={mountRef}
-            className={cn('relative h-full w-full translate-x-1/3 overflow-visible', className)}
+            className={cn('h-full w-full overflow-visible', className)}
+            style={{ transformOrigin: 'center' }}
         />
     );
 };

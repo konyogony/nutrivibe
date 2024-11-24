@@ -1,9 +1,20 @@
-import { RouteItem, TeamMember } from '@/types';
+import { Heading, TeamMember } from '@/types';
+import {
+    FiCpu,
+    FiDollarSign,
+    FiEye,
+    FiHome,
+    FiMail,
+    FiPackage,
+    FiTrendingUp,
+    FiUsers,
+} from '@vertisanpro/react-icons/fi';
+import { LuLightbulb } from '@vertisanpro/react-icons/lu';
 
 export const nutrivibeTeam: TeamMember[] = [
     {
         name: 'Ilya Rasputin',
-        position: 'Leading developer',
+        position: 'Lead developer',
         link: 'https://github.com/konyogony',
         img: 'https://avatars.githubusercontent.com/u/45127834?v=4',
     },
@@ -13,12 +24,16 @@ export const nutrivibeTeam: TeamMember[] = [
     { name: 'Antonina Lazareva', position: 'Some role' },
 ];
 
-export const pageRoutes: RouteItem[] = [
-    { name: 'Home', description: 'Homepage of the project' },
-    { name: 'About', description: 'Learn more about us and our team' },
-    { name: 'Impact', description: 'See our impact and goals' },
-    { name: 'Market', description: 'Checkout our market research' },
-    { name: 'Production', description: 'Understand the proccess of making one' },
+export const headings: Heading[] = [
+    { name: 'Home', description: 'Welcome to Nutrivibe', icon: FiHome },
+    { name: 'Team', description: 'Meet our team', icon: FiUsers },
+    { name: 'Inspiration', description: 'Our inspiration', icon: LuLightbulb },
+    { name: 'Product', description: 'Our product', icon: FiPackage },
+    { name: 'Perception', description: 'Customer perception', icon: FiEye },
+    { name: 'Finance', description: 'Financial overview', icon: FiDollarSign },
+    { name: 'Growth', description: 'Growth metrics', icon: FiTrendingUp },
+    { name: 'Technology', description: 'Our technology', icon: FiCpu },
+    { name: 'Contact', description: 'Get in touch', icon: FiMail },
 ];
 
 export const carouselItems = ['Sustainable', 'Healthy', 'Delicious', 'Nutritious', 'Eco-friendly'];
