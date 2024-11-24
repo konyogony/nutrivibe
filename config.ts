@@ -39,3 +39,11 @@ export const headings: Heading[] = [
 export const carouselItems = ['Sustainable', 'Healthy', 'Delicious', 'Nutritious', 'Eco-friendly'];
 
 export const wordsHero = ['better', 'healthier', 'greener', 'ethical', 'sustainable', 'responsible'];
+
+export const shortGoals = [
+    'Raise awareness',
+    'Introduce an alternative of protein bars',
+    'Develop a sustainable production process',
+];
+
+export const longGoals = ['Reduce animal farming', 'Promote sustainable living', 'Expand product range'];

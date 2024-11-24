@@ -35,7 +35,8 @@ const InsectFootprintTrail: React.FC = () => {
             {footprints.map((_, i) => {
                 const { x, y, angle } = getWavePosition(i);
                 const totalFootprints = footprints.length;
-                const opacity = i >= totalFootprints - 5 ? 1 - (i - (totalFootprints - 5)) * 0.2 : 1;
+                const fadeStartIndex = totalFootprints - 10;
+                const opacity = i >= fadeStartIndex ? 1 - (i - fadeStartIndex) * 0.1 : 1;
 
                 return (
                     <motion.div
@@ -45,7 +46,7 @@ const InsectFootprintTrail: React.FC = () => {
                             transform: `translate(${x}px, ${y}px) rotate(${angle}deg)`, // Align the footprint with the path
                         }}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity }}
+                        whileInView={{ opacity }}
                         transition={{
                             delay: i * 0.5,
                             duration: 1,
