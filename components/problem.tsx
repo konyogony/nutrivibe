@@ -66,7 +66,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                 viewport={{ once: true, amount: 0.9 }}
                 transition={{ duration: 0.7, delay: 0.8 }}
             >
-                <span className='flex w-full flex-col bg-muted-foreground/20 p-6 text-lg text-primary/90 backdrop-blur-sm md:w-1/3 md:px-6 md:py-16'>
+                <div className='flex w-full flex-col bg-muted-foreground/20 p-6 text-lg text-primary/90 backdrop-blur-sm md:w-1/3 md:px-6 md:py-16'>
                     <Link
                         className='mb-4 flex w-fit flex-row items-center gap-1 rounded-full border border-black/5 bg-brand/40 px-3 py-0.5 text-sm shadow-sm'
                         href='/sources#section-1'
@@ -74,10 +74,16 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                         <FiArrowUpRight size={16} />
                         True fact
                     </Link>
-                    Every second, animal farming releases<strong> 82 kg of methane and 900 kg of CO₂,</strong>
-                    significantly contributing to climate change. Methane traps much more heat than CO₂, highlighting
-                    the severe environmental impact of livestock farming.
-                </span>
+                    <span>
+                        Every second, animal farming releases
+                        <strong>
+                            &nbsp;82 kg of methane and 900 kg of CO<sub className='text-[0.5rem]'>2</sub>
+                        </strong>
+                        , significantly contributing to climate change. Methane traps much more heat than CO
+                        <sub className='text-[0.5rem]'>2</sub>, highlighting the severe environmental impact of
+                        livestock farming.
+                    </span>
+                </div>
                 <div className='flex w-full flex-col items-center justify-center p-8 md:w-2/3'>
                     <NumberFlow
                         value={Math.round(value * 1e1) / 1e1}
@@ -86,8 +92,10 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                         className='text-5xl'
                     />
                     <span className='text-center text-primary/70'>
-                        <strong>Tons of CO₂</strong> released this year <br className='hidden md:block' /> through
-                        animal farming
+                        <strong>
+                            Tons of CO<sub>2</sub>
+                        </strong>
+                        released this year <br className='hidden md:block' /> through animal farming
                     </span>
                 </div>
             </motion.div>

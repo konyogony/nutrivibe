@@ -5,7 +5,7 @@ export const Footer = () => {
                 &copy; {new Date().getFullYear()} Nutrivibe. All rights reserved.
             </span>
             <span className='text-center text-sm'>
-                Made with ❤️ by{' '}
+                Made with &hearts; by&nbsp;
                 <a
                     href='https://github.com/konyogony'
                     className='text-primary'
