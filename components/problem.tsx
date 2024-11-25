@@ -66,7 +66,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                 viewport={{ once: true, amount: 0.6 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
             >
-                <div className='flex w-full flex-col bg-muted-foreground/20 p-6 text-lg text-primary/90 backdrop-blur-sm md:px-6 md:py-16 lg:w-1/3'>
+                <div className='flex w-full flex-col bg-muted-foreground/20 p-6 text-lg text-primary/90 backdrop-blur-sm md:px-6 md:py-16 lg:w-2/3'>
                     <Link
                         className='mb-4 flex w-fit flex-row items-center gap-1 rounded-full border border-black/5 bg-brand/40 px-3 py-0.5 text-sm shadow-sm'
                         href='/sources#section-1'
@@ -84,7 +84,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                         livestock farming.
                     </span>
                 </div>
-                <div className='flex w-full flex-col items-center justify-center px-8 py-16 lg:w-2/3'>
+                <div className='flex w-full flex-col items-center justify-center overflow-clip px-8 py-16 lg:w-2/3'>
                     <NumberFlow
                         value={Math.round(value * 1e1) / 1e1}
                         format={{ minimumFractionDigits: 1 }}
