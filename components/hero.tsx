@@ -1,4 +1,4 @@
-import { FlipWords } from '@/components/ui/flip-words';
+import { Typewriter } from '@/components/ui/typewriter';
 import { headings, wordsHero } from '@/config';
 import { LearnMoreButton } from './learn-more-button';
 import { ProteinBar } from './protein-bar';
@@ -17,9 +17,19 @@ export const Hero = ({ sectionRefs }: HeroProps) => {
             id={headings[0].name.toLowerCase()}
         >
             <span className='absolute left-1/2 z-20 flex w-[90vw] -translate-x-1/2 flex-col text-5xl font-bold drop-shadow-2xl md:-translate-x-[45%] md:text-8xl lg:w-[70vw] 2xl:w-[30vw] 2xl:-translate-x-[100%]'>
-                <div className='inline-block'>
-                    Possibility of a <FlipWords words={wordsHero} className='m-0 p-0 text-white' /> future starts with
-                    food
+                <div className='flex flex-col'>
+                    Possibility of a
+                    <span className='[&>has(.styles-module_blinkingCursor__yugAC)]:text-sm'>
+                        <Typewriter
+                            words={wordsHero}
+                            cursor
+                            cursorStyle='|'
+                            typeSpeed={150}
+                            deleteSpeed={80}
+                            delaySpeed={3000}
+                        />
+                    </span>
+                    future starts with food
                 </div>
                 <LearnMoreButton className='mt-6' />
             </span>
