@@ -20,8 +20,8 @@ export const nutrivibeTeam: TeamMember[] = [
     },
     { name: 'Andrian Shatalin', position: 'Marketing director' },
     { name: 'Vlad Chernov', position: 'Production manager' },
-    { name: 'Taisiia Avkhadeeva', position: 'Some role' },
-    { name: 'Antonina Lazareva', position: 'Some role' },
+    { name: 'Taisiia Avkhadeeva', position: 'Company director' },
+    { name: 'Antonina Lazareva', position: 'Slides manager' },
 ];
 
 export const headings: Heading[] = [
