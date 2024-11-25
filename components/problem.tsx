@@ -45,7 +45,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
             </motion.span>
 
             <motion.span
-                className='text-right text-3xl text-primary/90 md:w-[80%] md:text-center md:text-2xl'
+                className='text-right text-3xl font-medium text-primary/90 md:w-[80%] md:text-center md:text-2xl'
                 initial='hidden'
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.9 }}
@@ -84,7 +84,7 @@ export const Problem = ({ sectionRefs }: ProblemProps) => {
                         livestock farming.
                     </span>
                 </div>
-                <div className='flex w-full flex-col items-center justify-center overflow-clip px-8 py-16 lg:w-2/3'>
+                <div className='z-30 flex h-full w-full flex-col items-center justify-center overflow-clip px-8 py-16 lg:w-2/3'>
                     <NumberFlow
                         value={Math.round(value * 1e1) / 1e1}
                         format={{ minimumFractionDigits: 1 }}

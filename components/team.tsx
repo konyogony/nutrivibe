@@ -29,7 +29,7 @@ export const Team = ({ sectionRefs }: TeamProps) => {
             </motion.span>
 
             <motion.span
-                className='text-left text-3xl text-primary/80 md:w-[80%] md:text-center md:text-2xl'
+                className='text-left text-3xl font-medium text-primary/80 md:w-[80%] md:text-center md:text-2xl'
                 initial='hidden'
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.8 }}

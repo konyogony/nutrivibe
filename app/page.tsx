@@ -1,5 +1,6 @@
 'use client';
 
+import { Contact } from '@/components/contact';
 import { Hero } from '@/components/hero';
 import InfiniteCarousel from '@/components/infinite-carousel';
 import { Problem } from '@/components/problem';
@@ -63,9 +64,7 @@ const Home = () => {
             </div>
             <Solution sectionRefs={sectionRefs} />
             <InfiniteCarousel />
-            <span className='mx-auto text-blue-600 text-4xl'>
-            Page under construction
-            </span>
+            <Contact sectionRefs={sectionRefs} />
         </div>
     );
 };
