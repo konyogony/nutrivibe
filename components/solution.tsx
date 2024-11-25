@@ -1,4 +1,5 @@
 import { headings, longGoals, shortGoals } from '@/config';
+import { FiPercent } from '@vertisanpro/react-icons/fi';
 import { GiChemicalBolt } from '@vertisanpro/react-icons/gi';
 import { LuBug, LuCarrot, LuGoal } from '@vertisanpro/react-icons/lu';
 import { TbBlender, TbBowlSpoon } from '@vertisanpro/react-icons/tb';
@@ -9,7 +10,6 @@ import FootprintTrail from './footprints';
 interface SolutionProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
 }
-
 const steps: React.ReactNode[] = [
     <div key='step-1' className='flex h-fit w-full flex-shrink-0 flex-col items-center'>
         <motion.div
@@ -17,7 +17,7 @@ const steps: React.ReactNode[] = [
             initial={{ scale: 0, rotate: -45 }}
             animate={{ scale: 1, rotate: 0 }}
             exit={{ scale: 0, rotate: 45 }}
-            transition={{ type: 'spring', stiffness: 120, damping: 10, delay: 1 }}
+            transition={{ type: 'spring', stiffness: 120, damping: 10, delay: 0.5 }}
         >
             <LuBug size={64} />
         </motion.div>
@@ -29,7 +29,7 @@ const steps: React.ReactNode[] = [
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 80, damping: 12, delay: 1 }}
+            transition={{ type: 'spring', stiffness: 80, damping: 12, delay: 0.5 }}
         >
             <TbBlender size={64} />
         </motion.div>
@@ -46,7 +46,7 @@ const steps: React.ReactNode[] = [
                 stiffness: 100,
                 damping: 10,
                 duration: 0.5,
-                delay: 0.6,
+                delay: 0.3,
             }}
         >
             <GiChemicalBolt size={64} />
@@ -59,7 +59,7 @@ const steps: React.ReactNode[] = [
             initial={{ rotate: 90, scale: 0 }}
             animate={{ rotate: 0, scale: 1 }}
             exit={{ rotate: -90, scale: 0 }}
-            transition={{ type: 'spring', stiffness: 150, damping: 15, delay: 1 }}
+            transition={{ type: 'spring', stiffness: 150, damping: 15, delay: 0.5 }}
         >
             <TbBowlSpoon size={64} />
         </motion.div>
@@ -242,7 +242,24 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.4 }}
                 >
-                    d
+                    <span className='z-20 text-2xl font-semibold text-primary'>Benefits</span>
+                    <motion.div
+                        className='absolute left-8 top-8'
+                        animate={{ rotate: [0, 720] }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 2,
+                            ease: 'easeInOut',
+                            repeatDelay: Math.floor(Math.random() * 5) + 4,
+                        }}
+                    >
+                        <FiPercent size={128} className='text-primary/15' />
+                    </motion.div>
+                    <ol className='ml-auto mt-auto list-inside list-decimal'>
+                        <li className='ml-auto w-[80%]'>Insects contain more protein than cattle in percentage</li>
+                        <li className='ml-auto'>Insects could be raised on food waste</li>
+                        <li className='ml-auto'> Insect farming requires 90% less land</li>
+                    </ol>
                 </motion.div>
 
                 <motion.div
@@ -252,7 +269,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                     viewport={{ once: true, amount: 0.1 }}
                     transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.8 }}
                 >
-                    <span className='z-20 text-2xl font-semibold text-primary'>Production pipeline</span>
+                    <span className='z-20 text-2xl font-semibold text-primary'>Production pipeline*</span>
                     <div className='flex h-full w-full items-center justify-center'>
                         <AnimatePresence mode='wait'>
                             <motion.div
@@ -262,7 +279,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                                 animate='visible'
                                 exit='exit'
                                 variants={variants}
-                                transition={{ type: 'spring', stiffness: 50, duration: 0.8 }}
+                                transition={{ type: 'spring', stiffness: 50, duration: 0.4 }}
                             >
                                 {steps[currentStep]}
                             </motion.div>
@@ -271,15 +288,29 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='col-span-2 rounded-lg border border-neutral-300/35 px-6 py-3 shadow-sm md:col-span-1 md:row-span-2'
+                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-center text-primary/85 shadow-sm md:col-span-1 md:row-span-2 md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
                     transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 3.2 }}
                 >
-                    f
+                    <span className='z-20 text-2xl font-semibold text-primary'>Target audience</span>
+                    <div className='flex w-full flex-row items-center justify-center gap-4'>
+                        <span>14</span>
+                        <motion.div
+                            className='h-[2px] w-1/2 rounded-full bg-primary/45'
+                            animate={{ scaleX: [1, 1.1, 1] }}
+                            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+                        />
+                        <span>35</span>
+                    </div>
+                    <span className='text-sm font-normal text-primary/80'>Young adults and middle aged kids</span>
                 </motion.div>
             </motion.div>
+
+            <span className='mx-auto text-sm font-semibold text-primary/70 transition-all duration-300 hover:rotate-[5deg] hover:scale-110'>
+                More content coming soon!
+            </span>
         </div>
     );
 };

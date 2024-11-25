@@ -1,7 +1,7 @@
+import { LearnMoreButton } from '@/components/learn-more-button';
+import { ProteinBar } from '@/components/protein-bar';
 import { Typewriter } from '@/components/ui/typewriter';
 import { headings, wordsHero } from '@/config';
-import { LearnMoreButton } from './learn-more-button';
-import { ProteinBar } from './protein-bar';
 
 interface HeroProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;

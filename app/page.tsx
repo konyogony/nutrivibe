@@ -1,5 +1,6 @@
 'use client';
 
+import { Contact } from '@/components/contact';
 import { Hero } from '@/components/hero';
 import InfiniteCarousel from '@/components/infinite-carousel';
 import { Problem } from '@/components/problem';
@@ -63,7 +64,7 @@ const Home = () => {
             </div>
             <Solution sectionRefs={sectionRefs} />
             <InfiniteCarousel />
-            <div className='h-[2000rem] w-full bg-muted' />
+            <Contact sectionRefs={sectionRefs} />
         </div>
     );
 };
