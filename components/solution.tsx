@@ -9,7 +9,7 @@ interface SolutionProps {
 
 export const Solution = ({ sectionRefs }: SolutionProps) => {
     return (
-        <div className='flex w-full flex-col items-center space-y-20 px-2 py-[15vh] md:px-[25vw]'>
+        <div className='flex w-full flex-col items-center space-y-20 px-2 pb-[5vh] pt-[15vh] md:!py-[15vh] md:px-[25vw]'>
             <motion.span
                 className='text-3xl md:text-4xl'
                 initial={{ opacity: 0, y: -20 }}
@@ -53,7 +53,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
             </motion.span>
 
             <motion.div
-                className='3xl:w-3/4 grid w-[95vw] grid-rows-10 gap-4 backdrop-blur-xl md:w-[75vw] md:grid-cols-2 lg:w-[60vw]'
+                className='grid w-[95vw] grid-rows-10 gap-4 backdrop-blur-xl md:w-[75vw] md:grid-cols-2 lg:w-[50vw] 3xl:w-3/4'
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
@@ -152,7 +152,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                         initial={{ opacity: 0, rotate: -180, x: -100 }}
                         whileInView={{ opacity: 1, rotate: 0, x: 0 }}
                         viewport={{ once: true, amount: 0.1 }}
-                        transition={{ type: 'spring', stiffness: 100, damping: 20, duration: 1.5, delay: 2 }}
+                        transition={{ type: 'spring', stiffness: 100, damping: 20, duration: 1.5, delay: 4 }}
                     >
                         <LuCarrot size={128} className='rotate-[-10deg] text-primary/15' />
                     </motion.div>

@@ -62,7 +62,7 @@ export default {
                 sm: 'calc(var(--radius) - 4px)',
             },
             screens: {
-                '3xl': '1920px',
+                '3xl': '1921px',
             },
         },
     },

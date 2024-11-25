@@ -34,7 +34,7 @@ const InsectFootprintTrail: React.FC = () => {
     };
 
     return (
-        <div className='absolute right-0 top-[45%] z-10 h-[300px] w-[20px]'>
+        <div className='absolute right-0 top-[45%] z-10 h-[300px] w-[20px] rotate-[20deg]'>
             {footprints.map((_, i) => {
                 const { x, y, angle } = getWavePosition(i);
                 const totalFootprints = footprints.length;
