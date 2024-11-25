@@ -1,13 +1,88 @@
 import { headings, longGoals, shortGoals } from '@/config';
-import { LuCarrot, LuGoal } from '@vertisanpro/react-icons/lu';
-import { motion } from 'motion/react';
+import { GiChemicalBolt } from '@vertisanpro/react-icons/gi';
+import { LuBug, LuCarrot, LuGoal } from '@vertisanpro/react-icons/lu';
+import { TbBlender, TbBowlSpoon } from '@vertisanpro/react-icons/tb';
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 import FootprintTrail from './footprints';
 
 interface SolutionProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
 }
 
+const steps: React.ReactNode[] = [
+    <div key='step-1' className='flex h-fit w-full flex-shrink-0 flex-col items-center'>
+        <motion.div
+            className='mb-4 text-primary/80'
+            initial={{ scale: 0, rotate: -45 }}
+            animate={{ scale: 1, rotate: 0 }}
+            exit={{ scale: 0, rotate: 45 }}
+            transition={{ type: 'spring', stiffness: 120, damping: 10, delay: 1 }}
+        >
+            <LuBug size={64} />
+        </motion.div>
+        <span className='text-lg font-medium'>1. Buy insects, like crickets, and dry them</span>
+    </div>,
+    <div key='step-2' className='flex h-fit w-full flex-shrink-0 flex-col items-center'>
+        <motion.div
+            className='mb-4 text-primary/80'
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 80, damping: 12, delay: 1 }}
+        >
+            <TbBlender size={64} />
+        </motion.div>
+        <span className='text-lg font-medium'>2. Mash them to get fine powder</span>
+    </div>,
+    <div key='step-3' className='flex h-fit w-full flex-shrink-0 flex-col items-center'>
+        <motion.div
+            className='mb-4 text-primary/80'
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1.2, opacity: 1 }}
+            exit={{ scale: 0.5, opacity: 0 }}
+            transition={{
+                type: 'spring',
+                stiffness: 100,
+                damping: 10,
+                duration: 0.5,
+                delay: 0.6,
+            }}
+        >
+            <GiChemicalBolt size={64} />
+        </motion.div>
+        <span className='text-lg font-medium'>3. Add sucrose and maltit</span>
+    </div>,
+    <div key='step-4' className='flex h-fit w-full flex-shrink-0 flex-col items-center'>
+        <motion.div
+            className='mb-4 text-primary/80'
+            initial={{ rotate: 90, scale: 0 }}
+            animate={{ rotate: 0, scale: 1 }}
+            exit={{ rotate: -90, scale: 0 }}
+            transition={{ type: 'spring', stiffness: 150, damping: 15, delay: 1 }}
+        >
+            <TbBowlSpoon size={64} />
+        </motion.div>
+        <span className='text-lg font-medium'>4. Add oatmeal mixed with peanut butter, honey or milk</span>
+    </div>,
+];
+
 export const Solution = ({ sectionRefs }: SolutionProps) => {
+    const [currentStep, setCurrentStep] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentStep((prevStep) => (prevStep + 1) % steps.length);
+        }, 6000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const variants = {
+        hidden: { x: '100%', opacity: 0 },
+        visible: { x: 0, opacity: 1 },
+        exit: { x: '-100%', opacity: 0 },
+    };
+
     return (
         <div className='flex w-full flex-col items-center space-y-20 px-2 pb-[5vh] pt-[15vh] md:!py-[15vh] md:px-[25vw]'>
             <motion.span
@@ -56,7 +131,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 className='grid w-[95vw] grid-rows-10 gap-4 backdrop-blur-xl md:w-[75vw] md:grid-cols-2 lg:w-[50vw] 3xl:w-3/4'
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.05 }}
                 transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5 }}
             >
                 <motion.div
@@ -88,10 +163,9 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                     <span className='z-20 text-2xl font-semibold text-primary'>Our goals</span>
                     <LuGoal size={512} className='absolute -bottom-1/2 -left-1/2 text-primary/5' />
 
-                    <div className='flex flex-row md:flex-col'>
-                        <div className='flex w-1/2 flex-col gap-2 md:w-full'>
+                    <div className='flex flex-col gap-8'>
+                        <div className='flex w-full flex-col gap-2'>
                             <strong className='underline decoration-double'>Short-term goals:</strong>
-                            <br />
                             <ul className='disc list-inside list-disc md:list-outside'>
                                 {shortGoals.map((goal, index) => (
                                     <motion.li
@@ -113,9 +187,8 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                             </ul>
                         </div>
 
-                        <div className='flex w-1/2 flex-col gap-2 md:w-full'>
+                        <div className='flex w-full flex-col gap-2'>
                             <strong className='underline decoration-double'>Long-term goals:</strong>
-                            <br />
                             <ul className='disc list-inside list-disc md:list-outside'>
                                 {longGoals.map((goal, index) => (
                                     <motion.li
@@ -128,7 +201,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                                             stiffness: 100,
                                             damping: 12,
                                             duration: 0.5,
-                                            delay: 2.2 + index * 0.4,
+                                            delay: 2.4 + index * 0.4,
                                         }}
                                     >
                                         {goal}
@@ -163,7 +236,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='col-span-2 rounded-lg border border-neutral-300/35 px-7 py-5 shadow-sm md:col-span-1 md:row-span-3 md:px-14 md:py-10'
+                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-right text-primary/85 shadow-sm md:col-span-1 md:row-span-3 md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
@@ -173,13 +246,28 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='col-span-2 rounded-lg border border-neutral-300/35 px-7 py-5 shadow-sm md:col-span-1 md:row-span-3 md:px-14 md:py-10'
+                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-center text-primary/85 shadow-sm md:col-span-1 md:row-span-3 md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
                     transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.8 }}
                 >
-                    e
+                    <span className='z-20 text-2xl font-semibold text-primary'>Production pipeline</span>
+                    <div className='flex h-full w-full items-center justify-center'>
+                        <AnimatePresence mode='wait'>
+                            <motion.div
+                                key={currentStep}
+                                className='flex h-fit w-full flex-shrink-0 flex-col text-center'
+                                initial='hidden'
+                                animate='visible'
+                                exit='exit'
+                                variants={variants}
+                                transition={{ type: 'spring', stiffness: 50, duration: 0.8 }}
+                            >
+                                {steps[currentStep]}
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </motion.div>
 
                 <motion.div
