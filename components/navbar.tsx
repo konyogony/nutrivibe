@@ -31,7 +31,7 @@ export const Navbar = () => {
                 duration: 0.5,
             }}
             className={cn(
-                'fixed inset-0 z-50 flex h-fit w-full flex-row items-center justify-start p-4 transition-all duration-500 md:top-6 md:justify-between md:bg-transparent md:px-4 md:backdrop-blur-none lg:px-[10vw]',
+                'fixed inset-0 z-50 flex h-fit w-full flex-row items-center justify-between p-4 transition-all duration-500 md:top-0 md:bg-transparent md:px-4 lg:px-[10vw]',
                 scrollHeight > 0 && 'bg-background/10 backdrop-blur-md',
             )}
         >
@@ -39,7 +39,7 @@ export const Navbar = () => {
                 Nutrivibe
             </Link>
             <a
-                className='hidden h-fit rounded-lg bg-neutral-300/50 p-2.5 transition-all duration-150 hover:bg-neutral-300/70 md:block md:backdrop-blur-md'
+                className='h-fit rounded-lg bg-neutral-300/50 p-2.5 transition-all duration-150 hover:bg-neutral-300/70'
                 href='https://github.com/konyogony/nutrivibe'
                 rel='noopener noreferrer'
                 target='_blank'
