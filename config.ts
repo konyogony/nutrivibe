@@ -18,8 +18,8 @@ export const nutrivibeTeam: TeamMember[] = [
         link: 'https://github.com/konyogony',
         img: 'https://avatars.githubusercontent.com/u/45127834?v=4',
     },
-    { name: 'Andrian Shatalin', position: 'Some role' },
-    { name: 'Vlad Chernov', position: 'Some role' },
+    { name: 'Andrian Shatalin', position: 'Marketing director' },
+    { name: 'Vlad Chernov', position: 'Production manager' },
     { name: 'Taisiia Avkhadeeva', position: 'Some role' },
     { name: 'Antonina Lazareva', position: 'Some role' },
 ];
