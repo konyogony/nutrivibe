@@ -5,3 +5,4 @@ interface TechnologyProps {
 export const Technology = ({ sectionRefs }: TechnologyProps) => {
     console.log(sectionRefs);
 };
+// https://magicui.design/docs/components/icon-cloud

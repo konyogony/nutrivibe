@@ -78,5 +78,5 @@ const Home = () => {
     );
 };
 // Take action. Stay in flow
-
+// https://magicui.design/docs/components/confetti
 export default Home;

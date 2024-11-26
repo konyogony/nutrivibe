@@ -1,3 +1,4 @@
+import { Chart } from '@/components/chart';
 import {
     cricketsPrice,
     headings,
@@ -11,7 +12,6 @@ import {
 import NumberFlow from '@number-flow/react';
 import { PiCurrencyDollarThin } from '@vertisanpro/react-icons/pi';
 import { motion } from 'motion/react';
-import { Chart } from './chart';
 
 interface FinanceProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
