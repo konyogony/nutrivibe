@@ -74,7 +74,6 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
                 model.position.set(0, 0, 0);
                 scene.add(model);
 
-                // Set texture filtering properties
                 model.traverse((child) => {
                     if ((child as Mesh).isMesh) {
                         const mesh = child as Mesh;

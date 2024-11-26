@@ -1,7 +1,7 @@
-interface PerceptionProps {
+interface GrowthProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
 }
 
-export const Perception = ({ sectionRefs }: PerceptionProps) => {
+export const Growth = ({ sectionRefs }: GrowthProps) => {
     console.log(sectionRefs);
 };

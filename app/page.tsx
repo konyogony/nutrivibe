@@ -3,6 +3,7 @@
 import { Contact } from '@/components/contact';
 import { Hero } from '@/components/hero';
 import InfiniteCarousel from '@/components/infinite-carousel';
+import { Perception } from '@/components/perception';
 import { Problem } from '@/components/problem';
 import { Sidebar } from '@/components/sidebar';
 import { Solution } from '@/components/solution';
@@ -55,7 +56,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className='min-h-screen w-full overflow-clip'>
+        <div className='flex min-h-screen w-full flex-col overflow-clip'>
             <Sidebar currentIndex={currentIndex} />
             <Hero sectionRefs={sectionRefs} />
             <div className='flex flex-col bg-gradient-to-br from-muted to-muted-foreground/20'>
@@ -64,6 +65,10 @@ const Home = () => {
             </div>
             <Solution sectionRefs={sectionRefs} />
             <InfiniteCarousel />
+            <Perception sectionRefs={sectionRefs} />
+            <span className='mx-auto my-16 w-fit cursor-default p-4 text-sm font-semibold text-primary/70 transition-all duration-300 hover:rotate-[5deg] hover:scale-110'>
+                More content coming soon!
+            </span>
             <Contact sectionRefs={sectionRefs} />
         </div>
     );

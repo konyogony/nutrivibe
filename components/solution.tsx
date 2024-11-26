@@ -128,7 +128,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
             </motion.span>
 
             <motion.div
-                className='grid w-[95vw] grid-rows-10 gap-4 backdrop-blur-xl md:w-[75vw] md:grid-cols-2 lg:w-[50vw] 3xl:w-3/4'
+                className='grid w-[95vw] gap-4 backdrop-blur-xl md:w-[75vw] md:grid-cols-2 md:grid-rows-10 lg:w-[50vw] 3xl:w-3/4'
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.05 }}
@@ -240,7 +240,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.4 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.2 }}
                 >
                     <span className='z-20 text-2xl font-semibold text-primary'>Benefits</span>
                     <motion.div
@@ -263,11 +263,11 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-center text-primary/85 shadow-sm md:col-span-1 md:row-span-3 md:px-14 md:py-10'
+                    className='relative col-span-2 flex h-fit flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-center text-primary/85 shadow-sm md:col-span-1 md:row-span-3 md:h-auto md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.8 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.4 }}
                 >
                     <span className='z-20 text-2xl font-semibold text-primary'>Production pipeline*</span>
                     <div className='flex h-full w-full items-center justify-center'>
@@ -288,11 +288,11 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                 </motion.div>
 
                 <motion.div
-                    className='relative col-span-2 flex flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-center text-primary/85 shadow-sm md:col-span-1 md:row-span-2 md:px-14 md:py-10'
+                    className='relative col-span-2 flex h-fit flex-col gap-8 overflow-clip rounded-lg border border-neutral-300/35 px-7 py-5 text-center text-primary/85 shadow-sm md:col-span-1 md:row-span-2 md:h-auto md:px-14 md:py-10'
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 3.2 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.6 }}
                 >
                     <span className='z-20 text-2xl font-semibold text-primary'>Target audience</span>
                     <div className='flex w-full flex-row items-center justify-center gap-4'>
@@ -307,10 +307,6 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                     <span className='text-sm font-normal text-primary/80'>Young adults and middle aged kids</span>
                 </motion.div>
             </motion.div>
-
-            <span className='mx-auto text-sm font-semibold text-primary/70 transition-all duration-300 hover:rotate-[5deg] hover:scale-110'>
-                More content coming soon!
-            </span>
         </div>
     );
 };

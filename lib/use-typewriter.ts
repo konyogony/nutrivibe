@@ -111,7 +111,6 @@ export const useTypewriter = ({
         count: 0,
     });
 
-    // Refs
     const loops = useRef(0);
     const isDone = useRef(false);
     const isDelete = useRef(false);

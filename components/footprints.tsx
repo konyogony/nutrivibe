@@ -46,7 +46,7 @@ const InsectFootprintTrail: React.FC = () => {
                         key={`footprint-${i}`}
                         className='absolute'
                         style={{
-                            transform: `translate(${x}px, ${y}px) rotate(${angle}deg)`, // Align the footprint with the path
+                            transform: `translate(${x}px, ${y}px) rotate(${angle}deg)`,
                         }}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity }}
