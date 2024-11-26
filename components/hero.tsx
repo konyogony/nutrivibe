@@ -1,7 +1,7 @@
 import { LearnMoreButton } from '@/components/learn-more-button';
 import { ProteinBar } from '@/components/protein-bar';
 import { Typewriter } from '@/components/ui/typewriter';
-import { headings, wordsHero } from '@/config';
+import { delaySpeed, deleteSpeed, headings, typeSpeed, wordsHero } from '@/config';
 
 interface HeroProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
@@ -24,9 +24,9 @@ export const Hero = ({ sectionRefs }: HeroProps) => {
                             words={wordsHero}
                             cursor
                             cursorStyle='|'
-                            typeSpeed={150}
-                            deleteSpeed={80}
-                            delaySpeed={3000}
+                            typeSpeed={typeSpeed}
+                            deleteSpeed={deleteSpeed}
+                            delaySpeed={delaySpeed}
                         />
                     </span>
                     future starts with food

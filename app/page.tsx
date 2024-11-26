@@ -1,6 +1,7 @@
 'use client';
 
 import { Contact } from '@/components/contact';
+import { Finance } from '@/components/finance';
 import { Hero } from '@/components/hero';
 import InfiniteCarousel from '@/components/infinite-carousel';
 import { Perception } from '@/components/perception';
@@ -66,6 +67,7 @@ const Home = () => {
             <Solution sectionRefs={sectionRefs} />
             <InfiniteCarousel />
             <Perception sectionRefs={sectionRefs} />
+            <Finance sectionRefs={sectionRefs} />
             <span className='mx-auto my-16 w-fit cursor-default p-4 text-sm font-semibold text-primary/70 transition-all duration-300 hover:rotate-[5deg] hover:scale-110'>
                 More content coming soon!
             </span>

@@ -1,5 +1,6 @@
 'use client';
 
+import { githubRepo } from '@/config';
 import { cn } from '@/lib/utils';
 import { FiGithub } from '@vertisanpro/react-icons/fi';
 import { motion } from 'motion/react';
@@ -40,7 +41,7 @@ export const Navbar = () => {
             </Link>
             <a
                 className='h-fit rounded-lg bg-neutral-300/50 p-2.5 transition-all duration-150 hover:bg-neutral-300/70'
-                href='https://github.com/konyogony/nutrivibe'
+                href={githubRepo}
                 rel='noopener noreferrer'
                 target='_blank'
             >
