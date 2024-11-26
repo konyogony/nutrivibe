@@ -1,6 +1,6 @@
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { headings, nutrivibeTeam } from '@/config';
 import { motion } from 'motion/react';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 interface TeamProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;

@@ -13,7 +13,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
     title: 'Nutrivibe',
-    description: 'Explore the wonders of nutrition and health.',
+    description: 'Explore the wonders of nutrition and health with insect protein bars.',
 };
 
 const RootLayout = ({

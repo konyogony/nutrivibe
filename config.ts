@@ -10,6 +10,8 @@ import {
     FiUsers,
 } from '@vertisanpro/react-icons/fi';
 import { LuLightbulb } from '@vertisanpro/react-icons/lu';
+import { SiBlender, SiNextdotjs, SiShadcnui, SiTailwindcss, SiTypescript, SiVercel } from '@vertisanpro/react-icons/si';
+import { TbOutlineBrandFramerMotion } from '@vertisanpro/react-icons/tb';
 
 export const nutrivibeTeam: TeamMember[] = [
     {
@@ -66,3 +68,13 @@ export const githubRepo = 'https://github.com/konyogony/nutrivibe';
 
 export const co2rate = 0.9;
 export const start2024 = 1704067200;
+
+export const technologies = [
+    { name: 'Next.js', url: 'https://nextjs.org/', icon: SiNextdotjs },
+    { name: 'Typescript', url: 'https://www.typescriptlang.org/', icon: SiTypescript },
+    { name: 'Tailwind CSS', url: 'https://tailwindcss.com/', icon: SiTailwindcss },
+    { name: 'Shadcn', url: 'https://shadcn.com/', icon: SiShadcnui },
+    { name: 'Aceternity UI', url: 'https://ui.aceternity.com/', icon: SiVercel },
+    { name: 'Motion', url: 'https://motion.dev/', icon: TbOutlineBrandFramerMotion },
+    { name: 'Blender', url: 'https://www.blender.org/', icon: SiBlender },
+];
