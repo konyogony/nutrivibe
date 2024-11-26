@@ -2,7 +2,7 @@ import { headings } from '@/config';
 import { useMediaQuery } from '@/lib/use-media-query';
 import { FiHome, FiMessageSquare, FiPlay, FiSkipForward, FiUser, FiUsers } from '@vertisanpro/react-icons/fi';
 import { RxEnterFullScreen } from '@vertisanpro/react-icons/rx';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 interface PerceptionProps {

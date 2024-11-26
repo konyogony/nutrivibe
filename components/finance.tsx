@@ -1,3 +1,4 @@
+import { Chart } from '@/components/chart';
 import {
     cricketsPrice,
     headings,
@@ -11,7 +12,6 @@ import {
 import NumberFlow from '@number-flow/react';
 import { PiCurrencyDollarThin } from '@vertisanpro/react-icons/pi';
 import { motion } from 'motion/react';
-import { Chart } from './chart';
 
 interface FinanceProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
@@ -50,7 +50,9 @@ export const Finance = ({ sectionRefs }: FinanceProps) => {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 1 }}
                 >
-                    <span className='text-4xl font-semibold'>Cost of ingredients</span>
+                    <a className='text-4xl font-semibold' href='/sources#section-2'>
+                        Cost of ingredients
+                    </a>
                     <div className='grid gap-8 md:grid-cols-2'>
                         <motion.div
                             className='flex flex-col items-start gap-2 rounded-xl border border-black/10 bg-neutral-200/40 px-6 py-3 text-left shadow-sm'
@@ -144,29 +146,59 @@ export const Finance = ({ sectionRefs }: FinanceProps) => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.25 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 1 }}
                 >
                     <span className='w-1/2 text-center text-2xl font-medium'>Pie chart representation:</span>
                     <Chart />
                 </motion.div>
-                <div className='flex w-full flex-col gap-4 bg-neutral-200/20 shadow-sm md:w-[60%] xl:w-1/2'>
-                    <div className='flex w-full flex-row justify-between rounded-lg border border-black/10 px-4 py-2'>
+                <motion.div
+                    className='flex w-full flex-col gap-4 md:w-[60%] xl:w-1/2'
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 1.2 }}
+                >
+                    <motion.div
+                        className='flex w-full flex-row justify-between rounded-lg border border-black/10 bg-neutral-200/20 px-4 py-2 shadow-sm'
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.75 }}
+                    >
                         <span className='text-2xl font-medium'>Selling Price per Bar</span>
                         <span className='text-2xl text-brand'>${sellingPrice.toFixed(2)}</span>
-                    </div>
-                    <div className='flex w-full flex-row justify-between rounded-lg border border-black/10 px-4 py-2'>
+                    </motion.div>
+                    <motion.div
+                        className='flex w-full flex-row justify-between rounded-lg border border-black/10 bg-neutral-200/20 px-4 py-2 shadow-sm'
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 3 }}
+                    >
                         <span className='text-2xl font-medium'>Production Cost per Bar</span>
                         <span className='text-2xl text-brand'>${(sellingPrice - profitPerBar).toFixed(2)}</span>
-                    </div>
-                    <div className='flex w-full flex-row justify-between rounded-lg border border-black/10 px-4 py-2'>
+                    </motion.div>
+                    <motion.div
+                        className='flex w-full flex-row justify-between rounded-lg border border-black/10 bg-neutral-200/20 px-4 py-2 shadow-sm'
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 3.25 }}
+                    >
                         <span className='text-2xl font-medium'>Profit per Bar</span>
                         <span className='text-2xl text-brand'>${profitPerBar.toFixed(2)}</span>
-                    </div>
-                    <div className='flex w-full flex-row justify-between rounded-lg border border-black/10 px-4 py-2'>
+                    </motion.div>
+                    <motion.div
+                        className='flex w-full flex-row justify-between rounded-lg border border-black/10 bg-neutral-200/20 px-4 py-2 shadow-sm'
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 3.5 }}
+                    >
                         <span className='text-2xl font-medium'>Profit Margin</span>
                         <span className='text-2xl text-brand'>${profitMargin.toFixed(2)}</span>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
             <div className='relative hidden w-1/3 xl:flex'>
                 <motion.span

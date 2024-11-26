@@ -1,3 +1,4 @@
+import FootprintTrail from '@/components/footprints';
 import { headings, longGoals, shortGoals } from '@/config';
 import { FiPercent } from '@vertisanpro/react-icons/fi';
 import { GiChemicalBolt } from '@vertisanpro/react-icons/gi';
@@ -5,7 +6,6 @@ import { LuBug, LuCarrot, LuGoal } from '@vertisanpro/react-icons/lu';
 import { TbBlender, TbBowlSpoon } from '@vertisanpro/react-icons/tb';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
-import FootprintTrail from './footprints';
 
 interface SolutionProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
