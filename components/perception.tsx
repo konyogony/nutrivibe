@@ -142,7 +142,7 @@ export const Perception = ({ sectionRefs }: PerceptionProps) => {
             <div className='min-h-[250vh] w-full' ref={scrollRef}>
                 <div className='sticky left-1/2 top-1/2 h-fit w-full -translate-y-1/2'>
                     <motion.div
-                        className='relative flex w-full px-4 md:px-[25vw]'
+                        className='relative w-full px-4 md:px-[25vw]'
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.9 }}

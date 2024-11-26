@@ -240,7 +240,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.2 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 1 }}
                 >
                     <span className='z-20 text-2xl font-semibold text-primary'>Benefits</span>
                     <motion.div
@@ -267,7 +267,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.4 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 1 }}
                 >
                     <span className='z-20 text-2xl font-semibold text-primary'>Production pipeline*</span>
                     <div className='flex h-full w-full items-center justify-center'>
@@ -292,7 +292,7 @@ export const Solution = ({ sectionRefs }: SolutionProps) => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 2.6 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 1 }}
                 >
                     <span className='z-20 text-2xl font-semibold text-primary'>Target audience</span>
                     <div className='flex w-full flex-row items-center justify-center gap-4'>
