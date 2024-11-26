@@ -11,7 +11,13 @@ const data = [
     {
         title: 'Short term',
         content: (
-            <div className='mt-2 flex flex-col text-left text-xl text-primary/80'>
+            <motion.div
+                className='mt-2 flex flex-col text-left text-xl text-primary/80'
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5 }}
+            >
                 Product development & Market research to determine trends and consumer behavior.
                 <ul className='list-disc pl-5'>
                     <li>Identify key market segments</li>
@@ -19,13 +25,19 @@ const data = [
                     <li>Conduct user testing and gather feedback</li>
                     <li>Refine product features based on research</li>
                 </ul>
-            </div>
+            </motion.div>
         ),
     },
     {
         title: 'Website Launch',
         content: (
-            <div className='mt-2 flex flex-col text-left text-xl text-primary/80'>
+            <motion.div
+                className='mt-2 flex flex-col text-left text-xl text-primary/80'
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5 }}
+            >
                 Information people about us and gives a platform to work on.
                 <ul className='list-disc pl-5'>
                     <li>✅ Build the website</li>
@@ -33,28 +45,40 @@ const data = [
                     <li>⏳ Collect feedback and improve the website</li>
                     <li>⏳ Make a marketplace on it</li>
                 </ul>
-            </div>
+            </motion.div>
         ),
     },
     {
         title: 'Medium Term',
         content: (
-            <div className='mt-2 flex flex-col text-left text-xl text-primary/80'>
+            <motion.div
+                className='mt-2 flex flex-col text-left text-xl text-primary/80'
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5 }}
+            >
                 Launch the product in Thailand. Focus on building a strong local presence and establishing partnerships
                 with key stakeholders. Engage with the community through events and social media to build brand
                 awareness and loyalty.
-            </div>
+            </motion.div>
         ),
     },
     {
         title: 'Long Term',
         content: (
-            <div className='mb-32 mt-2 flex flex-col text-left text-xl text-primary/80'>
+            <motion.div
+                className='mb-32 mt-2 flex flex-col text-left text-xl text-primary/80'
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5 }}
+            >
                 <span className='z-30 drop-shadow-2xl'>
                     Expansion to different Asian markets like China, Singapore, Korea, etc.
                 </span>
                 <Globe className='-top-10 w-1/2 brightness-90 md:-top-8 md:w-auto' />
-            </div>
+            </motion.div>
         ),
     },
 ];

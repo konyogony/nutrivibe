@@ -31,8 +31,6 @@ export const ProteinBar = ({ className }: ProteinBarProps) => {
     const mobile = !useMediaQuery('(min-width: 768px)');
     const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
 
-    console.log(reducedMotion, mobile);
-
     useEffect(() => {
         const mount = mountRef.current;
         if (!mount) return;

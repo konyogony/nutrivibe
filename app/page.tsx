@@ -10,6 +10,7 @@ import { Problem } from '@/components/problem';
 import { Sidebar } from '@/components/sidebar';
 import { Solution } from '@/components/solution';
 import { Team } from '@/components/team';
+import { Technology } from '@/components/technology';
 import { headings } from '@/config';
 import { useEffect, useRef, useState } from 'react';
 
@@ -18,7 +19,6 @@ const Home = () => {
         const index = headings.findIndex(
             (s) => s.name === (typeof window !== 'undefined' && window.location.hash.split('#')[1]),
         );
-        console.log('Initial currentIndex:', index !== -1 ? index : 0);
         return index !== -1 ? index : 0;
     });
 
@@ -32,7 +32,6 @@ const Home = () => {
                         const id = entry.target.id;
                         const index = headings.findIndex((s) => s.name === id);
                         if (index !== -1) {
-                            console.log('currentIndex changed to:', index);
                             setCurrentIndex(index);
                         }
                     }
@@ -70,13 +69,16 @@ const Home = () => {
             <Perception sectionRefs={sectionRefs} />
             <Finance sectionRefs={sectionRefs} />
             <Growth sectionRefs={sectionRefs} />
-            <span className='mx-auto my-16 w-fit cursor-default p-4 text-sm font-semibold text-primary/70 transition-all duration-300 hover:rotate-[5deg] hover:scale-110'>
-                More content coming soon!
+            <Technology sectionRefs={sectionRefs} />
+            <span className='group mx-auto my-16 flex w-fit cursor-default flex-col items-center gap-2 p-4 text-2xl font-semibold text-primary/90 transition-all duration-150 hover:scale-110'>
+                Take action. Stay in flow
+                <span className='text-sm transition-all duration-150 group-hover:rotate-[2deg]'>
+                    More content coming soon!
+                </span>
             </span>
             <Contact sectionRefs={sectionRefs} />
         </div>
     );
 };
-// Take action. Stay in flow
 // https://magicui.design/docs/components/confetti
 export default Home;
