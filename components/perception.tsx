@@ -13,7 +13,7 @@ export const Perception = ({ sectionRefs }: PerceptionProps) => {
     const [scrolled, setScrolled] = useState(false);
     const scrollRef = useRef<HTMLDivElement>(null);
 
-    const mobile = !useMediaQuery('(min-width: 768px)');
+    const mobile = !useMediaQuery('(min-width: 1280px)');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -149,7 +149,7 @@ export const Perception = ({ sectionRefs }: PerceptionProps) => {
                         transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 1.1, delay: 0.5 }}
                     >
                         <motion.div
-                            className='flex overflow-clip rounded-3xl bg-primary p-6'
+                            className='flex overflow-clip rounded-3xl bg-primary p-2 md:p-6'
                             initial={{ opacity: 0, scale: 0.5 }}
                             whileInView={{
                                 opacity: 1,
@@ -221,9 +221,9 @@ export const Perception = ({ sectionRefs }: PerceptionProps) => {
                             </div>
                         </motion.div>
                         <motion.span
-                            className='absolute left-1/2 top-1/2 flex h-10 flex-row items-end gap-1 overflow-clip text-3xl font-medium text-background'
+                            className='absolute left-1/2 top-1/2 flex h-10 w-full flex-row items-end gap-1 overflow-clip text-3xl font-medium text-background md:w-fit'
                             initial={{ opacity: 0, scale: 0.5, x: '-50%', y: '-50%' }}
-                            whileInView={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
+                            whileInView={{ opacity: 1, scale: 1, x: mobile ? '-35%' : '-50%', y: '-50%' }}
                             viewport={{ once: true, amount: 0.5 }}
                             transition={{ type: 'spring', stiffness: 100, damping: 12, duration: 0.5, delay: 0.5 }}
                         >

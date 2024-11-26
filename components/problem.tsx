@@ -1,4 +1,4 @@
-import { headings } from '@/config';
+import { co2rate, headings, start2024 } from '@/config';
 import NumberFlow from '@number-flow/react';
 import { FiArrowDown, FiArrowUpRight } from '@vertisanpro/react-icons/fi';
 import { motion } from 'motion/react';
@@ -10,8 +10,6 @@ interface ProblemProps {
 }
 
 export const Problem = ({ sectionRefs }: ProblemProps) => {
-    const co2rate = 0.9;
-    const start2024 = 1704067200;
     const now = Math.floor(new Date().getTime() / 1000);
 
     const [value, setValue] = useState(co2rate * (now - start2024));

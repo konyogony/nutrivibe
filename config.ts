@@ -47,3 +47,22 @@ export const shortGoals = [
 ];
 
 export const longGoals = ['Reduce animal farming', 'Promote sustainable living', 'Expand product range'];
+
+export const cricketsPrice = 0.82;
+export const oatmealPrice = 0.25;
+export const sweetenersPrice = 0.1;
+export const otherIngredientsPrice = 0.25;
+export const sellingPrice = 2.3;
+export const profitPerBar = 1.23;
+export const profitMargin = parseFloat(((profitPerBar / sellingPrice) * 100).toFixed(2));
+
+export const contactEmail = 'contact@nutrivibe.bar';
+
+export const typeSpeed = 150;
+export const deleteSpeed = 80;
+export const delaySpeed = 3000;
+
+export const githubRepo = 'https://github.com/konyogony/nutrivibe';
+
+export const co2rate = 0.9;
+export const start2024 = 1704067200;

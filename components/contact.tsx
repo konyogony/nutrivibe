@@ -1,4 +1,4 @@
-import { headings } from '@/config';
+import { contactEmail, headings } from '@/config';
 
 interface ContactProps {
     sectionRefs: React.MutableRefObject<(HTMLElement | null)[]>;
@@ -16,10 +16,10 @@ export const Contact = ({ sectionRefs }: ContactProps) => {
             >
                 Contact
             </span>
-            <span className='flex flex-row gap-1 text-lg text-secondary-foreground'>
+            <span className='flex flex-col items-center gap-1 text-center text-lg text-secondary-foreground md:flex-row'>
                 Feel free to reach out to us at
-                <a href='mailto:contact@nutrivibe.bar' className='text-blue-600'>
-                    contact@nutrivibe.bar
+                <a href={`mailto:${contactEmail}`} className='text-blue-600'>
+                    {contactEmail}
                 </a>
             </span>
             <span>Thanks for visiting!</span>
