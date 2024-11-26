@@ -90,8 +90,8 @@ export const Finance = ({ sectionRefs }: FinanceProps) => {
                                 Oatmeal
                             </span>
                             <span className='text-lg text-primary/80'>
-                                Oatmeal provides fiber and slow-digesting carbs for sustained energy. It's sourced from
-                                grocery stores or bulk suppliers, with a cost of ${oatmealPrice} per bar for a 30g
+                                Oatmeal provides fiber and slow-digesting carbs for sustained energy. It&apos;s sourced
+                                from grocery stores or bulk suppliers, with a cost of ${oatmealPrice} per bar for a 30g
                                 portion.
                             </span>
                         </motion.div>
