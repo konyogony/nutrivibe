@@ -58,7 +58,7 @@ export const sellingPrice = 2.3;
 export const profitPerBar = 1.23;
 export const profitMargin = parseFloat(((profitPerBar / sellingPrice) * 100).toFixed(2));
 
-export const contactEmail = 'contact@nutrivibe.bar';
+export const contactEmail = 'email reducted';
 
 export const typeSpeed = 150;
 export const deleteSpeed = 80;
